@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @url.id %>
+</p>
+
+<p>
+  <strong>Cardid:</strong>
+  <%= @url.cardid %>
+</p>
+
+<p>
+  <strong>Behaviour:</strong>
+  <%= @url.behaviour %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_url_path(@url) %> |
+<%= link_to 'Back', urls_path %>
