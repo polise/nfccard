@@ -7,7 +7,7 @@ class NfcUrlsController < ApplicationController
   # GET /urls.json
   def index
     @nfc_urls = NfcUrl.all
-  end
+  end 
 
   # GET /urls/1
   # GET /urls/1.json
