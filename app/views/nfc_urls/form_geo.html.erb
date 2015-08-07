@@ -1,0 +1,42 @@
+<h1>Geo Action</h1>
+
+ <%= form_for(@nfc_url) do |f| %>
+  <%= f.hidden_field :behaviour, :value => 'geo' %>
+
+  <% if @nfc_url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nfc_url.errors.count, "error") %> prohibited this url from being saved:</h2>
+
+      <ul>
+      <% @nfc_url.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "URL" %><br>
+    <%= f.text_field :name %> 
+  </div>
+ 
+
+  <div class = "field">
+    <%= f.label "When I tap my card, this link will come up if I'm in:" %>
+<br>  
+ <select name = "url[condition]">
+    <option value = ""> Please select </option>
+    <option value = "london"> London</option>
+    <option value = "paris"> Paris </option>
+    <option value = "newyork"> New York</option>
+  </select>
+  
+
+  </div>
+  
+  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804141515) do
+ActiveRecord::Schema.define(version: 20150807124057) do
 
   create_table "geos", force: :cascade do |t|
     t.integer "url_id"
@@ -19,12 +19,30 @@ ActiveRecord::Schema.define(version: 20150804141515) do
     t.string  "condition"
   end
 
-  create_table "randoms", force: :cascade do |t|
-    t.integer "url_id"
-    t.string  "url_1"
-    t.string  "url_2"
-    t.string  "url_3"
+  create_table "nfc_url", force: :cascade do |t|
+    t.string   "cardid"
+    t.string   "behaviour"
+    t.string   "behaviour_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
+
+  create_table "nfc_urls", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "random_urls", force: :cascade do |t|
+    t.integer  "nfc_url_id"
+    t.integer  "url_id"
+    t.string   "url_1"
+    t.string   "url_2"
+    t.string   "url_3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "random_urls", ["nfc_url_id"], name: "index_random_urls_on_nfc_url_id"
 
   create_table "urls", force: :cascade do |t|
     t.string   "cardid"

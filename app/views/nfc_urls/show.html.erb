@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @nfc_url.id %>
+</p>
+
+<p>
+  <strong>Cardid:</strong>
+  <%= @nfc_url.cardid %>
+</p>
+
+<p>
+  <strong>Behaviour:</strong>
+  <%= @nfc_url.behaviour %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_nfc_url_path(@nfc_url) %> |
+<%= link_to 'Back', nfc_urls_path %>

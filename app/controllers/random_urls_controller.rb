@@ -1,7 +1,7 @@
-class RandomController < ApplicationController
+class RandomUrlsController < ApplicationController
 
   def index
-    @random = Random.all
+    @random_url = RandomUrl.all
   end
 
   # GET /urls/1
@@ -11,14 +11,17 @@ class RandomController < ApplicationController
 
   # GET /urls/new
   def new
-    @random = Random.new
+    @random_url = RandomUrl.new
   end
 
   # GET /urls/choose
   def choose
-    @random = Random.new
+    @random_url = RandomUrl.new
   end
 
+  def initialise(someid)
+    @random_url = RandomUrl.new(:url_id => someid)
+  end
 
   # GET /urls/1/edit
   def edit
@@ -27,18 +30,19 @@ class RandomController < ApplicationController
   # POST /urls
   # POST /urls.json
   def create
-    @random = Random.new(random_params)
+    @random_url = new(random_url_params)
   end
 
     private
     # Use callbacks to share common setup or constraints between actions.
       def set_random
-        @random = Random.find(params[:id])
+        @random_url = RandomUrl.find(params[:id])
       end
 
       # Never trust parameters from the scary internet, only allow the white list through.
-      def random_params
+      def random_url_params
         params.require(:url_id).permit(:url_1, :url_2, :url_3)
       end
     end
+
 end

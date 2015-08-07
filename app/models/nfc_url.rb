@@ -1,5 +1,5 @@
-class Url < ActiveRecord::Base
-	
+class NfcUrl < ActiveRecord::Base
+
   has_one :geo, dependent: :destroy
   has_one :random_url, dependent: :destroy
   has_one :weather, dependent: :destroy
@@ -19,5 +19,6 @@ class Url < ActiveRecord::Base
   		return nil
   	end
   end
+
 
 end

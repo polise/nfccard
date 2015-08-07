@@ -1,6 +1,10 @@
 require 'test_helper'
 
-class RandomControllerTest < ActionController::TestCase
+class RandomUrlsControllerTest < ActionController::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+
   test "should get url_id:" do
     get :url_id:
     assert_response :success
@@ -35,5 +39,4 @@ class RandomControllerTest < ActionController::TestCase
     get :url_3:string
     assert_response :success
   end
-
 end

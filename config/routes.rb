@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :urls do
+  resources :nfc_urls do
 
-    resources :random
+    resources :random_url
 
 
     collection do
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   end
 
-  resources :random do
+  resources :random_url do
     collection do
 
     end

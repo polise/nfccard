@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Urls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cardid</th>
+      <th>Behaviour</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nfc_urls.each do |url| %>
+      <tr>
+        <td><%= nfc_url.cardid %></td>
+        <td><%= nfc_url.behaviour %></td>
+     
+        <td><%= link_to 'Show', nfc_url %></td>
+        <td><%= link_to 'Edit', edit_nfc_url_path(nfc_url) %></td>
+        <td><%= link_to 'Destroy', nfc_url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Url', choose_nfc_urls_path %>
