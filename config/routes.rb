@@ -1,29 +1,58 @@
 Rails.application.routes.draw do
 
+  #root 'nfc_urls#show'
+  #get '/:id' => 'nfc_urls#shower' as: :nfc_urls
+
+#  get 'nfc_urls/:id' => 'nfc_urls#shower', :as => :nfc_url
+     # get 'nfc_urls/:id', to: 'nfc_url#shower', as: :shower, constraints: { # 
+
+     #   nfc_url: /\d{1,2,3}/
+     # }
+
+
+
   resources :nfc_urls do
 
-    resources :random_url
-
-
+    #To add a route to the collection:
     collection do
-      get :choose
-    end
-
-  end
-
-  resources :random_url do
-    collection do
+      get :chooser
 
     end
 
+    # add a member route, allows it to recognise /nfc_urls/no/shower 
+    #with GET, and route to the shower action of nfc_urls controller, 
+    #with the resource id value passed in params(:id), also should create 
+    #shower_nfc_url_url and shower_nfc_url_path helpers
+     member do 
+       get 'shower'
+     end
+
+    #
+  
+ 
+    #resources :random_url, :weather_url, :geo_url    
+    #resources :weather_url
   end
+
+
+
   get 'welcome/index'
+
+  root to: 'welcome#index'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'welcome#index'
+   # root 'welcome#index'
+
+   # resources :weather_urls do
+
+   #    root ''
+
+   # end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -74,3 +103,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+
+

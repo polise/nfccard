@@ -11,51 +11,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807124057) do
+ActiveRecord::Schema.define(version: 20150811104441) do
 
-  create_table "geos", force: :cascade do |t|
-    t.integer "url_id"
-    t.string  "name"
-    t.string  "condition"
+  create_table "geo_urls", force: :cascade do |t|
+    t.integer  "nfc_urls_id"
+    t.integer  "nfc_url_id"
+    t.string   "url_1"
+    t.string   "location_1"
+    t.string   "url_2"
+    t.string   "location_2"
+    t.string   "url_3"
+    t.string   "location_3"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "nfc_url", force: :cascade do |t|
-    t.string   "cardid"
-    t.string   "behaviour"
-    t.string   "behaviour_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
+  add_index "geo_urls", ["nfc_urls_id"], name: "index_geo_urls_on_nfc_urls_id"
 
   create_table "nfc_urls", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "cardid"
+    t.string   "behaviour"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "random_url_id"
+    t.integer  "geo_url_id"
+    t.integer  "weather_url_id"
   end
 
   create_table "random_urls", force: :cascade do |t|
+    t.integer  "nfc_urls_id"
     t.integer  "nfc_url_id"
-    t.integer  "url_id"
     t.string   "url_1"
     t.string   "url_2"
     t.string   "url_3"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "random_urls", ["nfc_url_id"], name: "index_random_urls_on_nfc_url_id"
+  add_index "random_urls", ["nfc_urls_id"], name: "index_random_urls_on_nfc_urls_id"
 
-  create_table "urls", force: :cascade do |t|
-    t.string   "cardid"
-    t.string   "behaviour"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "behaviour_id"
+  create_table "weather_urls", force: :cascade do |t|
+    t.integer  "nfc_urls_id"
+    t.integer  "nfc_url_id"
+    t.string   "url_1"
+    t.string   "weather_1"
+    t.string   "url_2"
+    t.string   "weather_2"
+    t.string   "url_3"
+    t.string   "weather_3"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "weathers", force: :cascade do |t|
-    t.integer "url_id"
-    t.string  "name"
-    t.string  "condition"
-  end
+  add_index "weather_urls", ["nfc_urls_id"], name: "index_weather_urls_on_nfc_urls_id"
 
 end

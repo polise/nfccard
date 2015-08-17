@@ -1,9 +1,4 @@
 
-
-<p id="notice"><%= notice %></p>
-
-<%= form_for(@nfc_url, url: nfc_urls_path, method: :show ) do |f| %>
-
 <p>
   <strong>ID:</strong>
   <%= @nfc_url.id %>
@@ -27,7 +22,12 @@
 
 <p>
   <strong>Url 1:</strong>
-  <%= @nfc_url.random_url.url_1 %>
+  <%= @nfc_url.geo_url.url_1 %>
+  
+  </p>
+  <p>
+    <strong>Url 1 Location:</strong>
+   <%= @nfc_url.geo_url.location_1 %> 
 </p>
 
 
@@ -35,19 +35,25 @@
 <p>
   
   <strong>Url 2:</strong>
-    <%= @nfc_url.random_url.url_2 %>
+    <%= @nfc_url.geo_url.url_2 %>
 
+</p>
+
+  <p>
+    <strong>Url 2 Location:</strong>
+   <%= @nfc_url.geo_url.location_2 %> 
 </p>
 
 <p>
   <strong>Url 3:</strong>
-   <%= @nfc_url.random_url.url_3 %>
+   <%= @nfc_url.geo_url.url_3 %>
 </p>
 
+  <p>
+    <strong>Url 3 Location:</strong>
+   <%= @nfc_url.geo_url.location_3 %> 
+</p>
 
 
 <%= link_to 'Edit', edit_nfc_url_path(@nfc_url) %> |
 <%= link_to 'Back', nfc_urls_path %>
-
-
-<% end %>

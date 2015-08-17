@@ -1,6 +1,7 @@
 <h1>Random Action</h1>
 
- <%= form_for(@nfc_url) do |f| %>
+ 
+<%= form_for(@nfc_url, url: nfc_urls_path, method: :show) do |f| %>
    <%= f.hidden_field :behaviour, :value => 'random' %>
 
   <% if @nfc_url.errors.any? %>
@@ -15,7 +16,10 @@
     </div>
   <% end %>
 
-  <%= f.fields_for :random_url do |rando| %>
+
+
+
+  <%= f.fields_for :random_url, @nfc_url.random_url do |rando| %>
 
     <div class="field">
       <%= rando.label "URL 1" %><br>

@@ -1,9 +1,5 @@
 
 
-<p id="notice"><%= notice %></p>
-
-<%= form_for(@nfc_url, url: nfc_urls_path, method: :show ) do |f| %>
-
 <p>
   <strong>ID:</strong>
   <%= @nfc_url.id %>
@@ -49,5 +45,3 @@
 <%= link_to 'Edit', edit_nfc_url_path(@nfc_url) %> |
 <%= link_to 'Back', nfc_urls_path %>
 
-
-<% end %>

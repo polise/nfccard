@@ -1,7 +1,7 @@
 <h1>Weather Action</h1>
 
- <%= form_for(@nfc_url) do |f| %>
-  <%= f.hidden_field :behaviour, :value => 'geo' %>
+ <%= form_for(@nfc_url, url: nfc_urls_path, method: :show ) do |f| %>
+   <%= f.hidden_field :behaviour, :value => 'weather' %>
 
   <% if @nfc_url.errors.any? %>
     <div id="error_explanation">
@@ -15,25 +15,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label "URL" %><br>
-    <%= f.text_field :name %> 
-  </div>
+
+
+
+  <%= f.fields_for :weather_url, @nfc_url.weather_url do |weather| %>
+
+    <div class="field">
+      <%= weather.label "URL 1" %><br>
+      <%= weather.text_field :url_1 %> 
+      <%= weather.select( :weather_1,  ['Will load when it is...', 'Sunny', 'Raining', 'Overcast']) %>
+      </div>
  
+  <% end %>
 
-  <div class = "field">
-    <%= f.label "When I tap my card, this link will come up if it's:" %>
-<br>  
- <select name = "url[condition]">
-    <option value = ""> Please select </option>
-    <option value = "raining"> Raining </option>
-    <option value = "sunny"> Sunny </option>
-    <option value = "cloudy"> Cloudy</option>
-  </select>
-  
+    <%= f.fields_for :weather_url, @nfc_url.weather_url do |weather| %>
 
-  </div>
-  
+    <div class="field">
+      <%= weather.label "URL 2" %><br>
+      <%= weather.text_field :url_2 %> 
+      <%= weather.select( :weather_2,  ['Will load when it is...', 'Sunny', 'Raining', 'Overcast']) %>
+      </div>
+ 
+  <% end %>
+
+    <%= f.fields_for :weather_url, @nfc_url.weather_url do |weather| %>
+
+    <div class="field">
+      <%= weather.label "URL 3" %><br>
+      <%= weather.text_field :url_3 %> 
+      <%= weather.select( :weather_3,  ['Will load when it is...', 'Sunny', 'Raining', 'Overcast']) %>
+      </div>
+ 
+  <% end %>
   
 
   <div class="actions">

@@ -1,7 +1,7 @@
-class RandomUrlsController < ApplicationController
+class GeoUrlsController < ApplicationController
 
   def index
-    @random_url = RandomUrl.all
+    @geo_url = GeoUrl.all
   end
 
   # GET /urls/1
@@ -11,16 +11,16 @@ class RandomUrlsController < ApplicationController
 
   # GET /urls/new
   def new(someid)
-    @random_url = RandomUrl.new(:nfc_url_id => someid)
+    @geo_url = GeoUrl.new(:geo_url_id => someid)
   end
 
   # GET /urls/choose
   def choose
-    @random_url = RandomUrl.new
+    @geo_url = GeoUrl.new
   end
 
   def initialise(someid)
-    @random_url = RandomUrl.new(:nfc_url_id => someid)
+    @geo_url = GeoUrl.new(:nfc_url_id => someid)
   end
 
   # GET /urls/1/edit
@@ -30,18 +30,18 @@ class RandomUrlsController < ApplicationController
   # POST /urls
   # POST /urls.json
   def create(someid)
-    @random_url = new(:nfc_url_id => someid)
+    @geo_url = new(:nfc_url_id => someid)
   end
 
     private
     # Use callbacks to share common setup or constraints between actions.
-      def set_random
-        @random_url = RandomUrl.find(params[:id])
+      def set_weather
+        @geo_url = GeoUrl.find(params[:id])
       end
 
       # Never trust parameters from the scary internet, only allow the white list through.
-      def random_url_params
-        params.require(:nfc_url_id).permit(:url_1, :url_2, :url_3)
+      def geo_url_params
+        params.require(:nfc_url_id).permit(:url_1, :url_2, :url_3, :location_1, :location_2, :location_3)
       end
     end
 

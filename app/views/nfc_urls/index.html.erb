@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Urls</h1>
+<h1>All Da Urls</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Cardid</th>
+      <th>Card ID</th>
       <th>Behaviour</th>
       
       <th colspan="3"></th>
@@ -13,9 +13,9 @@
   </thead>
 
   <tbody>
-    <% @nfc_urls.each do |url| %>
+    <% @nfc_urls.each do |nfc_url| %>
       <tr>
-        <td><%= nfc_url.cardid %></td>
+        <td><%= nfc_url.id %></td>
         <td><%= nfc_url.behaviour %></td>
      
         <td><%= link_to 'Show', nfc_url %></td>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Url', choose_nfc_urls_path %>
+<%= link_to 'New Url', chooser_nfc_urls_path %>
