@@ -1,47 +1,62 @@
 
 
-<p>
-  <strong>ID:</strong>
-  <%= @nfc_url.id %>
-</p>
+<!DOCTYPE html>
+<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Cardid:</strong>
-  <%= @nfc_url.cardid %>
-</p>
-
-<p>
-  <strong>Behaviour:</strong>
-  <%= @nfc_url.behaviour %>
-</p>
-
-<p>
-  <strong>Created At:</strong>
-  <%= @nfc_url.created_at %>
-</p>
-
-
-<p>
-  <strong>Url 1:</strong>
-  <%= @nfc_url.random_url.url_1 %>
-</p>
+<html lang="en">
 
 
 
-<p>
-  
-  <strong>Url 2:</strong>
-    <%= @nfc_url.random_url.url_2 %>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-</p>
+<div class="container">
+  <h2>Random URL</h2>
+  <p>Everytime your NFC card is tapped, the user's cell phone will randomly go to one of the three links below:</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Card ID</th>
+        <th>Unique URL ID</th>
+        <th>Behaviour</th>
+        <th>Created At:</th>
+        <th>ID:</th>
+        <th>URL 1:</th>
+        <th>URL 2:</th>
+        <th>URL 3:</th>
+      </tr>
+    </thead>
+    <tbody>
 
-<p>
-  <strong>Url 3:</strong>
-   <%= @nfc_url.random_url.url_3 %>
-</p>
+      <tr>
+        <td><%= @nfc_url.id %></td>
+        <td><%= @nfc_url.cardid %></td>
+        <td><%= @nfc_url.behaviour %></td>
+        <td><%= @nfc_url.created_at %></td>
+        <td><%= @nfc_url.id %></td>
+        <td><%= @nfc_url.random_url.url_1 %></td>
+        <td><%= @nfc_url.random_url.url_2 %></td>
+        <td><%= @nfc_url.random_url.url_3 %></td>
+      </tr>
+
+  </tbody>
+  </table>
+</div>
+
+</body>
+
+<%= link_to 'Revamp', edit_nfc_url_path(@nfc_url)%> |
+<%= link_to 'I\'m done with this', nfc_urls_path %>
+</html>
 
 
 
-<%= link_to 'Edit', edit_nfc_url_path(@nfc_url) %> |
-<%= link_to 'Back', nfc_urls_path %>
+
 

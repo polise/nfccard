@@ -1,7 +1,7 @@
 <h1>Random Action</h1>
 
  
-<%= form_for(@nfc_url, url: nfc_urls_path, method: :show) do |f| %>
+<%= simple_form_for(@nfc_url, url: nfc_urls_path, method: :show) do |f| %>
    <%= f.hidden_field :behaviour, :value => 'random' %>
 
   <% if @nfc_url.errors.any? %>
@@ -22,11 +22,11 @@
   <%= f.fields_for :random_url, @nfc_url.random_url do |rando| %>
 
     <div class="field">
-      <%= rando.label "URL 1" %><br>
-      <%= rando.text_field :url_1 %> 
-      <%= rando.label "URL 2" %> <br>
-      <%= rando.text_field :url_2 %>
-      <%= rando.label "URL 3" %> <br>
+      <%= rando.label "URL 1:" %>
+      <%= rando.text_field :url_1 %> <br>
+      <%= rando.label "URL 2:" %> 
+      <%= rando.text_field :url_2 %><br>
+      <%= rando.label "URL 3:" %> 
       <%= rando.text_field :url_3 %>
     </div>
  
@@ -34,6 +34,7 @@
   
 
   <div class="actions">
-    <%= f.submit %>
+          <%= f.button 'submit', "Now that's what I'm talking about!" %>
+
   </div>
 <% end %>

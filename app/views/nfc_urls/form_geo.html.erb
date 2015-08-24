@@ -1,6 +1,6 @@
 <h1>Location-Based Action</h1>
 
- <%= form_for(@nfc_url, url: nfc_urls_path, method: :show ) do |f| %>
+ <%= simple_form_for(@nfc_url, url: nfc_urls_path, method: :show ) do |f| %>
    <%= f.hidden_field :behaviour, :value => 'geo' %>
 
   <% if @nfc_url.errors.any? %>
@@ -19,7 +19,7 @@
   <%= f.fields_for :geo_url, @nfc_url.geo_url do |geo| %>
 
     <div class="field">
-      <%= geo.label "URL 1" %><br>
+      <%= geo.label "URL 1:" %><br>
       <%= geo.text_field :url_1 %> 
       <%= geo.select( :location_1,  ['Will load when tapped at...', 'South Kensington', 'Shoreditch', 'Canary Wharf']) %>
   
@@ -30,7 +30,7 @@
   <%= f.fields_for :geo_url, @nfc_url.geo_url do |geo| %>
 
     <div class="field">
-      <%= geo.label "URL 2" %> <br>
+      <%= geo.label "URL 2:" %> <br>
       <%= geo.text_field :url_2 %>
       <%= geo.select( :location_2,  ['Will load when tapped at...', 'South Kensington', 'Shoreditch', 'Canary Wharf']) %>
   
@@ -41,7 +41,7 @@
     <%= f.fields_for :geo_url, @nfc_url.geo_url do |geo| %>
 
     <div class="field">
-      <%= geo.label "URL 3" %> <br>
+      <%= geo.label "URL 3:" %> <br>
       <%= geo.text_field :url_3 %>
       <%= geo.select( :location_3,  ['Will load when tapped at...', 'South Kensington', 'Shoreditch', 'Canary Wharf']) %>
   
@@ -53,6 +53,7 @@
 
 
   <div class="actions">
-    <%= f.submit %>
+          <%= f.button 'submit', "Now that's what I'm talking about!" %>
+
   </div>
 <% end %>

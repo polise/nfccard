@@ -28,12 +28,10 @@ class NfcUrlsController < ApplicationController
 
   # GET /urls/new
   def new
-    @nfc_url = NfcUrl.new(nfc_url_params) #had an @ sign was nfc_url_params
+    @nfc_url = NfcUrl.new(nfc_url_params[:nfc_url]) #had an @ sign was nfc_url_params
     #params = { nfc_url : { random_url: { nfc_url_id: @nfc_url }}}
-   
-
+    #@nfc_url.cardid = NfcUrl.generate_id
     #render :choose
-    @nfc_url.behaviour = params[:behaviour]
   
     case @nfc_url.behaviour
       when 'weather'
@@ -46,21 +44,6 @@ class NfcUrlsController < ApplicationController
         @random_url = RandomUrl.new
 
         @nfc_url.random_url = @random_url
-        
-        #@nfc_url.random_url.url_1 = "Hey!"
-        #@nfc_url.random_url_id = @random_url.id
-
-        #logger.debug(params[:nfc_url])
-        #logger.debug(params[:behaviour])
-
-
-        #random_url nfc_card.random_url.something 
-        #@random_url = @nfc_card.RandomUrl
-        #@random_url.url_id = params[:id]
-        #behaviour_id = @random_url
-
-        #@random_url.url_id =  
-        #NfcUrl.behaviour_id = @random_url.find(params[:id])
         
         render :form_rando
 
@@ -75,6 +58,11 @@ class NfcUrlsController < ApplicationController
       end
   end
 
+  def generate_id
+    current = :id;
+    number = current*142%67; #just for now. 
+  end 
+
 def randomU
   RandomUrl.create(someid: params[:nfc_url])
 end
@@ -84,7 +72,13 @@ end
     @nfc_url = NfcUrl.new
   end
 
+  def card_tap
+    @nfc_url = NfcUrl.find_by_card_id(params[:cardid])
+  end
 
+  def find_by_card_id
+
+  end
   # GET /urls/1/edit
   def edit
 
@@ -97,7 +91,7 @@ end
     when 'geo'
       render :form_geo
     when 'random'
-      render :form_random
+      render :form_rando
     else
       raise "Unknown Behaviour"
     end

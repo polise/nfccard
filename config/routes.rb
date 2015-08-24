@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     #To add a route to the collection:
     collection do
       get :chooser
+      get :card_tap
+      get :generate_id
 
     end
 
