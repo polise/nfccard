@@ -25,7 +25,8 @@
 
 
   <p> Done! Just put this link into your MOO BusinessCards+ URL and everytime your NFC card is tapped, the user's cell phone will randomly go to one of the three links below!</p>
-  <p><b> localhost:3000/r/<td><%= @nfc_url.cardid %></td></b> </p> 
+
+  <p>Link: <b><%= link_to "/r/#{@nfc_url.cardid}", "#{@nfc_url.cardid}" %></b> </p> 
 
 
 <p>Everytime your NFC card is tapped, the user's cell phone will go to one of the links below, depending on London's weather at the time:</p> 
