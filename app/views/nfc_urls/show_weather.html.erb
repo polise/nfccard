@@ -17,31 +17,16 @@
 </head>
 <body>
 
+  <p> Done! Just put this link into your MOO BusinessCards+ URL and everytime your NFC card is tapped, the user's cell phone will randomly go to one of the three links below!</p>
+  <p> localhost:3000/r/<td><%= @nfc_url.cardid %></td> </p> 
 
 <div class="container">
-  <h2>Random URL</h2>
   <h3>The deets:</h3> 
 
-<table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Card ID</th>
-        <th>Behaviour</th>
-        <th>Created At:</th>
-        <th>ID:</th>
-      </tr>
-    </thead>
-    <tbody>
 
-      <tr>
-        <td><%= @nfc_url.id %></td>
-        <td><%= @nfc_url.behaviour %></td>
-        <td><%= @nfc_url.created_at %></td>
-        <td><%= @nfc_url.id %></td>
-      </tr>
+  <p> Done! Just put this link into your MOO BusinessCards+ URL and everytime your NFC card is tapped, the user's cell phone will randomly go to one of the three links below!</p>
+  <p><b> localhost:3000/r/<td><%= @nfc_url.cardid %></td></b> </p> 
 
-  </tbody>
-  </table>
 
 <p>Everytime your NFC card is tapped, the user's cell phone will go to one of the links below, depending on London's weather at the time:</p> 
 

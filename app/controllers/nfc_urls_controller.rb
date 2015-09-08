@@ -30,8 +30,9 @@ class NfcUrlsController < ApplicationController
   def new
     @nfc_url = NfcUrl.new(nfc_url_params[:nfc_url]) #had an @ sign was nfc_url_params
     #params = { nfc_url : { random_url: { nfc_url_id: @nfc_url }}}
-    #@nfc_url.cardid = NfcUrl.generate_id
-    #render :choose
+    
+    
+    #render :chooseFoo.includes(:bar).where.not('bars.id' => nil)
   
     case @nfc_url.behaviour
       when 'weather'
@@ -44,7 +45,8 @@ class NfcUrlsController < ApplicationController
         @random_url = RandomUrl.new
 
         @nfc_url.random_url = @random_url
-        
+        @nfc_url.cardid = rand*821
+
         render :form_rando
 
 
@@ -58,14 +60,8 @@ class NfcUrlsController < ApplicationController
       end
   end
 
-  def generate_id
-    current = :id;
-    number = current*142%67; #just for now. 
-  end 
 
-def randomU
-  RandomUrl.create(someid: params[:nfc_url])
-end
+
 
   # GET /urls/choose
   def chooser
@@ -157,6 +153,21 @@ end
     respond_to do |format|
       format.html { redirect_to nfc_urls_url, notice: 'That URL was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def redirect
+    @nfc_url = NfcUrl.find_by_cardid(params[:cardid])
+    # Figure out how to 'run' the redirect
+    if @nfc_url 
+      runner = @nfc_url.find_behaviour
+      if runner
+        redirect_to runner.run()
+      else
+        raise "No behaviour found"
+      end
+    else
+      raise "Unknown cardid"
     end
   end
 

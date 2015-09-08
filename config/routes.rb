@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   end
 
 
+  get 'r/:cardid' => 'nfc_urls#redirect'
 
   get 'welcome/index'
 
