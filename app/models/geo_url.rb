@@ -1,6 +1,6 @@
 class GeoUrl < ActiveRecord::Base
 	belongs_to :nfc_url
 
-	def run()
+	def run
 	end
 end

@@ -61,8 +61,15 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.5.2)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
+    forecast_io (2.0.0)
+      faraday
+      hashie
+      multi_json
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    hashie (3.4.2)
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -80,9 +87,9 @@ GEM
     mini_portile (0.6.2)
     minitest (5.7.0)
     multi_json (1.11.2)
+    multipart-post (2.0.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    pg (0.18.3)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -158,9 +165,9 @@ DEPENDENCIES
   bootswatch-rails
   byebug
   coffee-rails (~> 4.1.0)
+  forecast_io
   jbuilder (~> 2.0)
   jquery-rails
-  pg
   rails (= 4.2.3)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

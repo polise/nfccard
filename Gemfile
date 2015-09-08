@@ -8,13 +8,13 @@ group :development do
 	gem 'sqlite3'
 end
 
-group :production do
-  gem "pg"
-end
+#group :production do
+#  gem 'pg'
+#end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-
+gem 'forecast_io'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'bootswatch-rails'

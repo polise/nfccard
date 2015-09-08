@@ -45,7 +45,6 @@ class NfcUrlsController < ApplicationController
         @random_url = RandomUrl.new
 
         @nfc_url.random_url = @random_url
-        @nfc_url.cardid = rand*821
 
         render :form_rando
 

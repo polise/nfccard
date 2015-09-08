@@ -33,16 +33,16 @@ class GeoUrlsController < ApplicationController
     @geo_url = new(:nfc_url_id => someid)
   end
 
-    private
-    # Use callbacks to share common setup or constraints between actions.
-      def set_weather
-        @geo_url = GeoUrl.find(params[:id])
-      end
+  private
+  
+  # Use callbacks to share common setup or constraints between actions.
+  def set_weather
+    @geo_url = GeoUrl.find(params[:id])
+  end
 
-      # Never trust parameters from the scary internet, only allow the white list through.
-      def geo_url_params
-        params.require(:nfc_url_id).permit(:url_1, :url_2, :url_3, :location_1, :location_2, :location_3)
-      end
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def geo_url_params
+    params.require(:nfc_url_id).permit(:url_1, :url_2, :url_3, :location_1, :location_2, :location_3)
+  end
 
 end
