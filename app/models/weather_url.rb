@@ -1,13 +1,18 @@
 class WeatherUrl < ActiveRecord::Base
 	belongs_to :nfc_url
 
-	def run()
-		# look up weather service based on LatLong
-		forecast = ForecastIO.forecast(51.5072, 0.1275)
+	def run(lat_lng)
+		# look up weather service based on LatLon
+	
+		if(lat_lng)	
+			forecast = ForecastIO.forecast(lat_lng.at(0), lat_lng.at(1))
+		elsif 
+			forecast = ForecastIO.forecast(0.52, -0.0818)
+		end
 		summary = forecast.currently.summary
 
 		
-		if summary.downcase.include? "cloud"
+		if summary.downcase.include? "cloud" or summary.downcase.include? "overcast"
 			return find_url('Overcast')
 		elsif (summary.downcase.include? "sun" or summary.downcase.include? "clear")
 			return find_url('Sunny')

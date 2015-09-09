@@ -3,7 +3,7 @@ class RandomUrl < ActiveRecord::Base
 	#set_primary_key "id"
 
 	# pick random from list
-	def run()
+	def run(lat_lng)
 		number = rand(1..3)
 		case number
 		when 1

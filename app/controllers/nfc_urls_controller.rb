@@ -161,7 +161,7 @@ class NfcUrlsController < ApplicationController
     if @nfc_url 
       runner = @nfc_url.find_behaviour
       if runner
-        redirect_to runner.run()
+        redirect_to runner.run(@lat_lng)
       else
         raise "No behaviour found"
       end

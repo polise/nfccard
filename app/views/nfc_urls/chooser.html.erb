@@ -13,10 +13,10 @@
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li>
-            <a href="nfc_urls/chooser">New</a>
+            <a href="../nfc_urls/chooser">New</a>
         </li>
         <li>
-            <a href="nfc_urls">URLs</a>
+            <a href="/nfc_urls">URLs</a>
         </li>
    </div>
  </div>
@@ -36,7 +36,7 @@
       <%= image_tag("glyphicons-190-brightness-increase.png",alt:"blah")%>
       <div class="caption">
         <h3>The Weather!</h3>
-        <p><font color="CornflowerBlue"> Each time a user taps your card against their phone, one of three links will come up. Depende en el tiempo: ¿hace sol, está nublado, o está lloviendo? </font> 
+        <p><font color="CornflowerBlue"> Each time a user taps your card against their phone, one of three links will come up. Depende en el tiempo: ¿hace sol, está nublado, o está lloviendo? <br></font> 
          </p> <br>
         
 			<%= simple_form_for(@nfc_url, url: new_nfc_url_path(), method: :get, html: { class: 'form-horizontal' }) do |f| %>
@@ -55,7 +55,7 @@
 
       <div class="caption">
         <h3>Location, location, location.</h3>
-        <p><font color="CornflowerBlue"> Each time a user taps your card against their phone, one of three links will come up, depending on if they are in The City, Shoreditch, or South Kensington. </font></p> 
+        <p><font color="CornflowerBlue"> Each time a user taps your card against their phone, one of three links will come up, depending on where the are in London. </font></p> 
 			<%= simple_form_for(@nfc_url, url: new_nfc_url_path(), method: :get, html: { class: 'form-horizontal' }) do |f| %>
 			<%= f.hidden_field 'behaviour', value: 'geo' %>
 			<%= f.button 'submit', "Create Location URL" %>
@@ -72,7 +72,7 @@
       <%= image_tag("glyphicons-323-playing-dices.png",alt:"blah")%>
       <div class="caption">
         <h3>Nothing!</h3>
-        <p><font color="CornflowerBlue">Each time a user taps your card against their phone, one of three links ( of your choosing ) will come up randomly. Halten Sie sie zu schätzen... </font></p> <br>
+        <p><font color="CornflowerBlue">Each time a user taps your card against their phone, one of three links (of your choosing) will come up randomly. Halten Sie sie zu schätzen... <br> </font></p> <br> <br> <br> 
         
 		<%= simple_form_for(@nfc_url, url: new_nfc_url_path(), method: :get, html: { class: 'form-horizontal' }) do |f| %>
 		<%= f.hidden_field 'behaviour', value: 'random' %>

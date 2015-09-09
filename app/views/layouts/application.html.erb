@@ -17,5 +17,12 @@
         </div>
       </div>
     </div>
+
+<%- if @lat_lng.empty? %>
+  <script>
+   getGeoLocation();
+  </script>
+<%- end %>
+
   </body>
 </html>
