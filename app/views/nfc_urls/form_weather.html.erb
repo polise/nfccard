@@ -1,6 +1,6 @@
-<h1>Weather Action</h1>
+<h1>Weather Based Action</h1>
 
- <%= form_for(@nfc_url, url: nfc_urls_path, method: :show ) do |f| %>
+ <%= simple_form_for(@nfc_url, url: nfc_urls_path, method: :show ) do |f| %>
    <%= f.hidden_field :behaviour, :value => 'weather' %>
 
   <% if @nfc_url.errors.any? %>
@@ -16,40 +16,55 @@
   <% end %>
 
 
+  <%= f.fields_for :weather_url, @nfc_url.geo_url do |weather| %>
 
-
-  <%= f.fields_for :weather_url, @nfc_url.weather_url do |weather| %>
+<form>
+  NFC Card go to this link  
+  <input type="text" name="url_1"> when it is Sunny.
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname">
+</form>
 
     <div class="field">
-      <%= weather.label "URL 1" %><br>
+      <%= weather.label "URL 1:" %><br>
       <%= weather.text_field :url_1 %> 
       <%= weather.select( :weather_1,  ['Will load when it is...', 'Sunny', 'Raining', 'Overcast']) %>
-      </div>
- 
-  <% end %>
-
-    <%= f.fields_for :weather_url, @nfc_url.weather_url do |weather| %>
-
-    <div class="field">
-      <%= weather.label "URL 2" %><br>
-      <%= weather.text_field :url_2 %> 
-      <%= weather.select( :weather_2,  ['Will load when it is...', 'Sunny', 'Raining', 'Overcast']) %>
-      </div>
- 
-  <% end %>
-
-    <%= f.fields_for :weather_url, @nfc_url.weather_url do |weather| %>
-
-    <div class="field">
-      <%= weather.label "URL 3" %><br>
-      <%= weather.text_field :url_3 %> 
-      <%= weather.select( :weather_3,  ['Will load when it is...', 'Sunny', 'Raining', 'Overcast']) %>
-      </div>
- 
-  <% end %>
   
 
+    </div>
+    <%end%>
+
+      <%= f.fields_for :weather_url, @nfc_url.geo_url do |geo| %>
+
+    <div class="field">
+      <%= geo.label "URL 2:" %><br>
+      <%= geo.text_field :url_2 %> 
+      <%= geo.select( :weather_2,  ['Will load when it is...', 'Sunny', 'Raining', 'Overcast']) %>
+  
+
+    </div>
+    <%end%>
+
+      <%= f.fields_for :weather_url, @nfc_url.geo_url do |geo| %>
+
+    <div class="field">
+      <%= geo.label "URL 3:" %><br>
+      <%= geo.text_field :url_3 %> 
+      <%= geo.select( :weather_3,  ['Will load when it is...', 'Sunny', 'Raining', 'Overcast']) %>
+  
+
+    </div>
+    <%end%>
+
+
+
   <div class="actions">
-    <%= f.submit %>
+          <%= f.button 'submit', "Done!" %>
+
   </div>
 <% end %>
+
+
+
+

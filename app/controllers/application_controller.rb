@@ -15,13 +15,9 @@ class ApplicationController < ActionController::Base
   	if cookies[:lat_lng]
 	  	@lat_lng = cookies[:lat_lng].split("|")
   		logger.debug("at lat_long = #{@lat_lng}")
-  	elsif
-      @lat_lng = lat_lng_via_geolocation
     end
   end
 
 
-  def lat_lng_via_geolocation
-    @lat_lng  = getGeoLocation()
-  end
+
 end
