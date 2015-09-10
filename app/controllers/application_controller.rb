@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  #before_filter :check_location_set
+  before_filter :check_location_set
 
   def check_location_set
   	logger.debug("lat_lng cookie is #{cookies[:lat_lng]}")
