@@ -187,4 +187,14 @@ class NfcUrlsController < ApplicationController
                                weather_url_attributes: [ :nfc_url_id, :url_1, :weather_1, :url_2, :weather_2, :url_3, :weather_3  ]]
                     )
     end
+
+
+<%- if @lat_lng == nil %> <!-- changed from .emptyu?   -->
+  <script>
+   getGeoLocation();
+  </script>
+<%- end %>
+
+
+
 end
