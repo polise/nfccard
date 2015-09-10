@@ -25,3 +25,4 @@ function setGeoCookie(position) {
   document.cookie = "lat_lng=" + escape(cookie_val);
   console.log("lat_lng=" + escape(cookie_val));
 }
+

@@ -22,6 +22,6 @@ class ApplicationController < ActionController::Base
 
 
   def lat_lng_via_geolocation
-    @lat_lng ||= session[:lat_lng] ||=  format.js { render :action => "getGeoLocation", :layout => false }
+    @lat_lng ||= session[:lat_lng] ||=  applation.js { render :action => "getGeoLocation", :layout => false }
   end
 end
