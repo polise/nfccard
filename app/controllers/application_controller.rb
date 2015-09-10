@@ -16,12 +16,12 @@ class ApplicationController < ActionController::Base
 	  	@lat_lng = cookies[:lat_lng].split("|")
   		logger.debug("at lat_long = #{@lat_lng}")
   	elsif
-      lat_lng_via_geolocation
+      @lat_lng = lat_lng_via_geolocation
     end
   end
 
 
   def lat_lng_via_geolocation
-    @lat_lng ||= session[:lat_lng] ||= get_geolocation_data_the_hard_way
+    @lat_lng ||= session[:lat_lng] ||=  format.js { render :action => "getGeoLocation", :layout => false }
   end
 end
