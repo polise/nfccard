@@ -18,7 +18,7 @@
       </div>
     </div>
 
-<%- if @lat_lng == nil %> <!-- changed from .emptyu?-->
+<%- unless @lat_lng %> <!-- changed from .emptyu?  if @lat_lng == nil -->
   <script>
    getGeoLocation();
   </script>
