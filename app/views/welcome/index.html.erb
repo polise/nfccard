@@ -41,3 +41,9 @@
 
 
 <a href="/nfc_urls/chooser" class="btn btn-default">Let's Go!</a> </p>
+
+<%- if @lat_lng == nil %> <!-- changed from .emptyu?   -->
+  <script>
+   getGeoLocation();
+  </script>
+<%- end %>

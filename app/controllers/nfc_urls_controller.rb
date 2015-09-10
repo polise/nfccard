@@ -189,11 +189,7 @@ class NfcUrlsController < ApplicationController
     end
 
 
-<%- if @lat_lng == nil %> <!-- changed from .emptyu?   -->
-  <script>
-   getGeoLocation();
-  </script>
-<%- end %>
+
 
 
 
