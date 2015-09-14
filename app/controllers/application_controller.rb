@@ -20,12 +20,17 @@ class ApplicationController < ActionController::Base
 
 
   def set_cookie(counter)
-    document.cookie = counter
+    cookies[:counter] = counter
   end
 
   def get_cookie()
-    cook = document.cookie
-    
+    if cookies[:counter]
+      logger.debug("APP_CONTROLLER COUNTER: #{cookies[:counter]}")
+      return cookies[:counter]
+    else
+      return 1
+    end
+
   end
 
 

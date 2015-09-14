@@ -5,20 +5,17 @@ class RandomUrl < ActiveRecord::Base
 	# pick random from list
 	def run(lat_lng,counter)
 
-
-		arr = array
+		logger.debug("RANDOMURL COUNTER #{counter}")
+		counter = counter.to_i
 		case counter
 		when 1
-			ser_cookie(2)
-			return self.url_1
+			return [2,self.url_1]
 		when 2
-			set_cookie(3)
-			return self.url_2
+			return [3,self.url_2]
 		when 3
-			set_cookie(1)
-			return self.url_3
+			return [1,self.url_3]
 		end
 
-		
+		logger.debug("i got here")
 	end
 end

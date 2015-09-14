@@ -13,11 +13,11 @@ class WeatherUrl < ActiveRecord::Base
 
 		
 		if summary.downcase.include? "cloud" or summary.downcase.include? "overcast"
-			return find_url('Overcast')
+			return [1,find_url('Overcast')]
 		elsif (summary.downcase.include? "sun" or summary.downcase.include? "clear")
-			return find_url('Sunny')
+			return [1,find_url('Sunny')]
 		elsif (summary.downcase.include? "rain" or summary.downcase.include? "drizzle")
-			return find_url('Raining')
+			return [1,find_url('Raining')]
 		else 
 			raise "New Uncharted Weather"
 		end

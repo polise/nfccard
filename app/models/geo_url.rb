@@ -18,11 +18,11 @@ class GeoUrl < ActiveRecord::Base
 
 
 		if [sdtotal, cwtotal, sktotal].min == sdtotal
-			return find_url('Shoreditch')
+			return [1,find_url('Shoreditch')]
 		elsif [sdtotal, cwtotal, sktotal].min == sktotal
-			return find_url('South Kensington')
+			return [1,find_url('South Kensington')]
 		elsif [sdtotal, cwtotal, sktotal].min == cwtotal
-			return find_url('Canary Wharf')
+			return [1,find_url('Canary Wharf')]
 		else
 
 		end

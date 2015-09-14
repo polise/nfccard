@@ -161,8 +161,12 @@ class NfcUrlsController < ApplicationController
     if @nfc_url 
       runner = @nfc_url.find_behaviour
       if runner
-        counter = get_cookie()
-        redirect_to runner.run(@lat_lng,@counter)
+        @counter = get_cookie()
+
+        (number,website) = runner.run(@lat_lng,@counter)
+        set_cookie(number)
+        logger.debug("NFC URLS CONTROLLER cookie is #{number}")
+        redirect_to website
       else
         raise "No behaviour found"
       end
