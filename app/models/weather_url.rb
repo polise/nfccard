@@ -1,7 +1,7 @@
 class WeatherUrl < ActiveRecord::Base
 	belongs_to :nfc_url
 
-	def run(lat_lng)
+	def run(lat_lng,counter)
 		# look up weather service based on LatLon
 	
 		if(lat_lng)	

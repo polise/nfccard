@@ -1,7 +1,7 @@
 class GeoUrl < ActiveRecord::Base
 	belongs_to :nfc_url
 
-	def run(lat_lng)
+	def run(lat_lng,counter)
 
 		lat = lat_lng.at(0).to_f
 		long = lat_lng.at(1).to_f

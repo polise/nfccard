@@ -19,5 +19,14 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def set_cookie(counter)
+    document.cookie = counter
+  end
+
+  def get_cookie()
+    cook = document.cookie
+    
+  end
+
 
 end
