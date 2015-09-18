@@ -18,14 +18,6 @@
 
   <%= f.fields_for :weather_url, @nfc_url.geo_url do |weather| %>
 
-<form>
-  NFC Card go to this link  
-  <input type="text" name="url_1"> when it is Sunny.
-  <br>
-  Last name:<br>
-  <input type="text" name="lastname">
-</form>
-
     <div class="field">
       <%= weather.label "URL 1:" %><br>
       <%= weather.text_field :url_1 %> 

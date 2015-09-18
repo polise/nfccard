@@ -17,6 +17,9 @@
 //= require_tree .
 
 function getGeoLocation() {
+
+
+	
   navigator.geolocation.getCurrentPosition(setGeoCookie);
 }
 

@@ -13,8 +13,9 @@ class ApplicationController < ActionController::Base
   def check_location_set
   	logger.debug("lat_lng cookie is #{cookies[:lat_lng]}")
   	if cookies[:lat_lng]
+      
 	  	@lat_lng = cookies[:lat_lng].split("|")
-  		logger.debug("at lat_long = #{@lat_lng}")
+  		logger.debug("GOT LATLONG FROM COOKIES AND IT IS #{@lat_lng}")
     end
   end
 
@@ -23,9 +24,9 @@ class ApplicationController < ActionController::Base
     cookies[:counter] = counter
   end
 
+
   def get_cookie()
     if cookies[:counter]
-      logger.debug("APP_CONTROLLER COUNTER: #{cookies[:counter]}")
       return cookies[:counter]
     else
       return 1

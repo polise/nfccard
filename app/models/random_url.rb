@@ -4,8 +4,7 @@ class RandomUrl < ActiveRecord::Base
 
 	# pick random from list
 	def run(lat_lng,counter)
-
-		logger.debug("RANDOMURL COUNTER #{counter}")
+		
 		counter = counter.to_i
 		case counter
 		when 1
@@ -16,6 +15,5 @@ class RandomUrl < ActiveRecord::Base
 			return [1,self.url_3]
 		end
 
-		logger.debug("i got here")
 	end
 end

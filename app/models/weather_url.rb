@@ -4,20 +4,24 @@ class WeatherUrl < ActiveRecord::Base
 	def run(lat_lng,counter)
 		# look up weather service based on LatLon
 	
+
+
+
 		if(lat_lng)	
 			forecast = ForecastIO.forecast(lat_lng.at(0), lat_lng.at(1))
 		elsif 
+			logger.debug("COULDN'T GET WEATHER USING GENERIC LDN COORDINATE")
 			forecast = ForecastIO.forecast(0.52, -0.0818)
 		end
 		summary = forecast.currently.summary
 
 		
 		if summary.downcase.include? "cloud" or summary.downcase.include? "overcast"
-			return [1,find_url('Overcast')]
+			return [counter.to_i+1,find_url('Overcast')]
 		elsif (summary.downcase.include? "sun" or summary.downcase.include? "clear")
-			return [1,find_url('Sunny')]
+			return [counter.to_i+1,find_url('Sunny')]
 		elsif (summary.downcase.include? "rain" or summary.downcase.include? "drizzle")
-			return [1,find_url('Raining')]
+			return [counter.to_i+1,find_url('Raining')]
 		else 
 			raise "New Uncharted Weather"
 		end
